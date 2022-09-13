@@ -9,7 +9,10 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.transition.Visibility
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -38,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var viewPager : ViewPager2
     lateinit var location_lbl  : TextView
     private var CountryCode : String ="AT"
-
+    lateinit var progress_circular : ProgressBar
     private var mViewModel: HolidaysViewModel? = null
     private var favViewModel: FavoriteHolidaysViewModel? = null
 
@@ -71,6 +74,7 @@ class HomeActivity : AppCompatActivity() {
     private fun linkUi() {
         tab_layout = findViewById(R.id.tab_layout)
         viewPager = findViewById(R.id.view_pager)
+        progress_circular = findViewById(R.id.progress_circular)
         viewPagerAdapter = VpAdapter(this)
         viewPager.adapter = viewPagerAdapter
         location_lbl= findViewById(R.id.location_lbl)
@@ -127,6 +131,7 @@ class HomeActivity : AppCompatActivity() {
     private fun updateLabels(countryCode: String?) {
 
         location_lbl.text = countryCode
+        progress_circular.visibility = View.GONE
 
     }
 
@@ -187,6 +192,9 @@ class HomeActivity : AppCompatActivity() {
         }
         fusedLocationClient.lastLocation.addOnSuccessListener {
 
+           if (it == null){
+               return@addOnSuccessListener
+           }
             fetchData(geocoder?.getFromLocation(it.latitude, it.longitude, 10)?.get(0)?.countryCode ?: "")
             updateLabels(geocoder?.getFromLocation(it.latitude, it.longitude, 10)?.get(0)?.countryCode)
             // Toast.makeText(callingActivity,selftgeocoder?.getFromLocation(it.latitude,it.longitude,10)?.get(0)?.countryCode,Toast.LENGTH_SHORT).show()
@@ -199,7 +207,7 @@ class HomeActivity : AppCompatActivity() {
        var year = Calendar.getInstance().get(Calendar.YEAR).toString();
         CountryCode = location
 
-        var apiService = RestClient.getClient(year,CountryCode).create(HolidaysApiService::class.java)
+        var apiService = RestClient.getClient(year,"US").create(HolidaysApiService::class.java)
         val call: Call<HolidaysData> = apiService.fetchHolidays()
         call.enqueue(object : Callback<HolidaysData?> {
             override fun onResponse(call: Call<HolidaysData?>?, response: Response<HolidaysData?>) {
@@ -272,9 +280,6 @@ class HomeActivity : AppCompatActivity() {
                         checkBackgroundLocation()
                     }
 
-                } else {
-
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
                 }
                 return
             }
@@ -301,11 +306,6 @@ class HomeActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
                 }
                 return
 
