@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SafeUp</string>
+    <string name="holiday_name">Holiday Name</string>
+    <string name="holiday_date">Holiday Date</string>
+    <string name="location">Location</string>
+    <string name="error_location">No Data Found For Location</string>
+</resources>

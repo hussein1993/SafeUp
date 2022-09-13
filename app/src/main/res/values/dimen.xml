@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="negative_loader_dimen">-180dp</dimen>
+    <dimen name="gab">20dp</dimen>
+    <dimen name="big_gab">30dp</dimen>
+    <dimen name="small_gab">10dp</dimen>
+    <dimen name="tiny_gab">5dp</dimen>
+    <dimen name="text_normal">18sp</dimen>
+    <dimen name="code_box_size">60dp</dimen>
+
+    <dimen name="text_size">24sp</dimen>
+    <dimen name="small_text">16sp</dimen>
+</resources>
