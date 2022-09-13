@@ -1,15 +1,9 @@
 package com.example.safeup;
 
-import android.app.Application;
-
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.safeup.models.HolidayModelItem;
-import com.example.safeup.models.HolidaysData;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class HolidaysRepo {
     private static MutableLiveData<ArrayList<HolidayModelItem>> allHolidays;

@@ -3,7 +3,6 @@ package com.example.safeup
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import com.example.safeup.models.HolidayModelItem
 import com.google.gson.Gson
 

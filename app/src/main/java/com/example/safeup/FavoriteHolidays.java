@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import com.example.safeup.adapters.HolidayEntryAdapter;
 import com.example.safeup.models.HolidayModelItem;
 import com.example.safeup.viewmodels.FavoriteHolidaysViewModel;
-import com.example.safeup.viewmodels.HolidaysViewModel;
 
 import java.util.ArrayList;
 

@@ -2,8 +2,6 @@ package com.example.safeup.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safeup.DetailsActivity;
 import com.example.safeup.HolidaysRepo;
 import com.example.safeup.models.HolidayModelItem;
 import com.example.safeup.R;
-import com.example.safeup.selectListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HolidayEntryAdapter extends RecyclerView.Adapter<HolidayEntryAdapter.ViewHolder> {
 

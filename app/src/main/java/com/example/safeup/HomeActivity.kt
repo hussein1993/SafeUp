@@ -2,23 +2,19 @@ package com.example.safeup
 
 import android.Manifest
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
-import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.PorterDuff
 import android.location.Geocoder
-import android.location.Location
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
-import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.MutableLiveData
 import androidx.viewpager2.widget.ViewPager2
 import com.example.safeup.adapters.VpAdapter
 import com.example.safeup.models.HolidayModelItem
@@ -33,7 +29,6 @@ import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.reflect.Type
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
